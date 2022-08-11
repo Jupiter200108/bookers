@@ -1,27 +1,26 @@
 <h1>Editing Book</h1>
 
 <%= form_with model: @book do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-
-  <div>
-    <%= f.label :title %>
-    <div>
-      <%= f.text_field :title %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
+  <body>
+    <form>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
       </div>
-  </div>
 
-  <div>
-    <%= f.label :body %>
-    <div>
-      <%= f.text_area :body %>
-    </div>
-  </div>
+      <div class="field">
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+      </div>
   
-  <%= f.submit 'Update Book' %>
-  
-  <div>
-  <%= link_to "Show", book_path(@book.id) %>
-  |
-  <%= link_to "Back", books_path %>
-  </div>
+      <div class="actions">
+        <%= f.submit 'Update Book' %>
+      </div>
+    </form>
+    <a><%= link_to "Show", book_path(@book.id) %></a>
+    |
+    <a><%= link_to "Back", books_path %></a>  
+  </body>
 <% end %>
